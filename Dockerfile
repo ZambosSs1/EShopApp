@@ -6,9 +6,6 @@ WORKDIR /EShopApp
 
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
-
-RUN .mvnw -o
-
 COPY src ./src
 
 CMD ["./mvnw", "spring-boot:run"]
