@@ -2,12 +2,12 @@
 
 FROM eclipse-temurin:17-jdk-jammy
 
-WORKDIR /app
+WORKDIR /EShopApp
 
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 RUN ./mvnw dependency:resolve
-RUN mvn -o
+RUN .mvnw -o
 
 COPY src ./src
 
