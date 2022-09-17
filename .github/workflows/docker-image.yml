@@ -1,5 +1,8 @@
 name: Docker Image CI
 
+env:
+  DEFAULT_IMG: ${{ github.run_id }}-${{ github.run_attempt }}
+
 on:
   push:
     branches: [ "main" ]
@@ -21,7 +24,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . -f Dockerfile --tag zambosss1/kiii_project
+      run: docker build . --file Dockerfile --tag zambosss1/kiii_project:$DEFAULT_TAG
       
     - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/kiii_project
+      run: docker push zambosss1/kiii_project$DEFAULT_TAG
