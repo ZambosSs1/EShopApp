@@ -26,7 +26,7 @@ jobs:
       
     - name: Enter the Folder
       run: 
-        cd -
+        cd /
         
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag zambosss1/kiii_project:$DEFAULT_IMG
