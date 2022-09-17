@@ -25,9 +25,8 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       
     - name: Enter the Folder
-      run: 
-        echo "switched `pwd`"
-        ls 
+      run:
+        ls -l 
         
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag zambosss1/kiii_project:$DEFAULT_IMG
