@@ -5,8 +5,9 @@ FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /EShopApp
 
 COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
+COPY mvn pom.xml ./
 COPY src ./src
-RUN javac EShopApplication.java 
 
-CMD ["./mvnw", "spring-boot:run"]
+RUN ./mvn dependency:resolve
+
+CMD ["./mvn", "spring-boot:run"]
