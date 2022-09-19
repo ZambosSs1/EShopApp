@@ -8,6 +8,6 @@ COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 COPY src ./src
 
-RUN ./mvn dependency:resolve
+RUN ./mvnw dependency:resolve
 
 CMD ["./mvn", "spring-boot:run"]
