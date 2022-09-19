@@ -1,17 +1,17 @@
 package mk.finki.ukim.emt.eshop.model;
 
-import lombok.Data;
-
-import javax.persistence.*;
-
-@Data
-@Entity
+//import lombok.Data;
+//
+//import javax.persistence.*;
+//
+//@Data
+//@Entity
 public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @Column(length = 4000)
+//    @Column(length = 4000)
     private String description;
 
     public Category() {
