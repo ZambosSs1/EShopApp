@@ -5,7 +5,7 @@ FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /EShopApp
 
 COPY .mvn/ .mvn
-COPY mvn pom.xml ./
+COPY mvnw pom.xml ./
 COPY src ./src
 
 RUN ./mvn dependency:resolve
