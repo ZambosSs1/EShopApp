@@ -3,10 +3,10 @@ kind: Deployment
 metadata:
   name: eshopapp
   namespace: default
-  spec:
-    containers:
-    - name: eshopapp
-      image: eshopapplication:latest
+spec:
+  containers:
+  - name: eshopapp
+    image: eshopapplication:latest
 ---
 apiVersion: v1
 kind: Service
