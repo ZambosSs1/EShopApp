@@ -1,0 +1,15 @@
+version: '2'
+services:
+  message-server:
+    container_name: project_app
+    build:
+      context: eshopapplication
+      dockerfile: Dockerfile
+    image: eshopapplication:latest
+    ports:
+      - 5050:5050
+    networks:
+      - spring-cloud-network
+networks:
+  spring-cloud-network:
+    driver: bridge
