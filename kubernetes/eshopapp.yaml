@@ -2,13 +2,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: EShopApp
+  name: eshopapp
   labels:
-    app: EShopApp
+    app: eshopapp
 spec:
   type: NodePort
   selector:
-    app: EShopApp
+    app: eshopapp
   ports:
   - protocol: TCP
     port: 8010
@@ -17,16 +17,16 @@ spec:
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: EShopApp
+  name: eshopapp
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: EShopApp
+        app: eshopapp
     spec:
       containers:
-      - name: EShopApp
+      - name: eshopapp
         image: zambosss1/kiii_project:latest
         ports:
         - containerPort: 8010
