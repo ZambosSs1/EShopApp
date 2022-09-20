@@ -4,9 +4,18 @@ metadata:
   name: eshopapp
   namespace: default
 spec:
-  containers:
-  - name: eshopapp
-    image: eshopapplication:latest
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: web
+  template:
+    metadata:
+      labels:
+        bb: web
+    spec:
+      containers:
+      - name: eshopapp
+        image: eshopapplication:latest
 ---
 apiVersion: v1
 kind: Service
