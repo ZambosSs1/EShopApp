@@ -17,19 +17,19 @@ spec:
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: shopfront
+  name: eshopapplication
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: shopfront
+        app: eshopapplication
     spec:
       containers:
-      - name: shopfront
-        image: danielbryantuk/djshopfront:latest
+      - name: eshopapplication
+        image: zambosss1/kiii_project:latest
         ports:
-        - containerPort: 8010
+        - containerPort: 5050
         livenessProbe:
           httpGet:
             path: /health
