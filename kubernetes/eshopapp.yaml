@@ -28,6 +28,7 @@ spec:
       containers:
       - name: eshopapp
         image: eshopapplication:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 8010
         livenessProbe:
