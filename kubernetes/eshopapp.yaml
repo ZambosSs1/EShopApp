@@ -1,39 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eshopapp
+  namespace: default
+  spec:
+    containers:
+    - name: eshopapp
+      image: eshopapplication:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: eshopapp
-  labels:
-    app: eshopapp
+  namespace: default
 spec:
   type: NodePort
   selector:
-    app: eshopapp
+    eshopapp: web
   ports:
-  - protocol: TCP
-    port: 8010
-    name: http
----
-apiVersion: v1
-kind: ReplicationController
-metadata:
-  name: eshopapp
-spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: eshopapp
-    spec:
-      containers:
-      - name: eshopapp
-        image: eshopapplication:latest
-        imagePullPolicy: Never
-        ports:
-        - containerPort: 8010
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 8010
-          initialDelaySeconds: 30
-          timeoutSeconds: 1
+  - port: 3000
+    targetPort: 3000
+    nodePort: 30001
